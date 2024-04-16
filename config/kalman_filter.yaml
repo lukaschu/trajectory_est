@@ -1,0 +1,18 @@
+model_noise_pos: 0.01
+model_noise_vel: 0.25
+model_noise_quat: 0.01
+model_noise_omega: 0.25
+
+meas_noise_pos: 0.0005
+meas_noise_vel: 0.1
+meas_noise_quat: 0.001
+meas_noise_omega: 0.1
+
+init_noise_pos: 0.0005
+init_noise_vel: 0.75
+init_noise_quat: 0.001
+init_noise_omega: 0.75
+
+prediction_steps: 10
+low_pass_order: 5
+use_KF: true

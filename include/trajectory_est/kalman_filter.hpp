@@ -10,6 +10,7 @@
 #include "mocap4r2_msgs/msg/rigid_bodies.hpp"
 #include <Eigen/Dense>
 #include <yaml-cpp/yaml.h>
+#include "ament_index_cpp/get_package_share_directory.hpp"
 
 class KalmanFilter
 {
@@ -52,8 +53,12 @@ private:
     Eigen::Matrix<double, 13, 1> predicted_state;
     Eigen::Matrix<double, 13, 13> posterior_cov = Eigen::Matrix<double, 13, 13>::Zero(); 
     Eigen::Matrix<double, 13, 13> kalman_gain;
+    
+    //YAML::Node config = YAML::LoadFile("/home/lukas_schueepp/workfolder/opti_ws/src/trajectory_est/config/kalman_filter.yaml");
 
-    YAML::Node config = YAML::LoadFile("/home/q650232/opti_ws/src/trajectory_est/config/kalman_filter.yaml");
+    std::string package_share_directory = ament_index_cpp::get_package_share_directory("trajectory_est");
+    std::string yaml_path = package_share_directory + "/src/trajectory_est/config/kalman_filter.yaml";
+    YAML::Node config = YAML::LoadFile(yaml_path);
     
      // Load params 
      float model_noise_pos = config["model_noise_pos"].as<float>();

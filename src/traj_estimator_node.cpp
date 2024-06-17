@@ -82,7 +82,7 @@ void TrajectoryEstimator::kalmanFilterCallback()
         auto message = geometry_msgs::msg::PoseStamped();
         
         for(unsigned int j=0; j < Predicted_Trajectory.size(); ++j) // j corresponds to the step forward
-        {
+        {   
             message.header.stamp.sec = j;//updating_period * std::pow(10,3) * j; // how far in the future do we predict
             message.header.frame_id = std::to_string(i); // what obstacle
 
@@ -95,7 +95,7 @@ void TrajectoryEstimator::kalmanFilterCallback()
             message.pose.orientation.z = Predicted_Trajectory[j](8,0);
             message.pose.orientation.w = Predicted_Trajectory[j](9,0);
 
-            prediction_publisher_->publish(message);
+            prediction_publisher_->publish(message); 
         }
 
         // Is only needed for plotting (TF)

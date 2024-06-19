@@ -57,7 +57,7 @@ private:
     //YAML::Node config = YAML::LoadFile("/home/lukas_schueepp/workfolder/opti_ws/src/trajectory_est/config/kalman_filter.yaml");
 
     std::string package_share_directory = ament_index_cpp::get_package_share_directory("trajectory_est");
-    std::string yaml_path = package_share_directory + "/src/trajectory_est/config/kalman_filter.yaml";
+    std::string yaml_path = package_share_directory + "/config/kalman_filter.yaml";
     YAML::Node config = YAML::LoadFile(yaml_path);
     
      // Load params 

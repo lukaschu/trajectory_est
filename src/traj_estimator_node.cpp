@@ -99,6 +99,7 @@ void TrajectoryEstimator::kalmanFilterCallback()
         }
 
         // Is only needed for plotting (TF)
+        // Currently the 8th prediction is plotted
         //unsigned int last = Predicted_Trajectory.size();
 
         geometry_msgs::msg::TransformStamped t;

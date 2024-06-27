@@ -30,3 +30,11 @@ space using a kalman filter and subsequently, publishes future predicted states.
 To establish a connection between the Optitrack system and the system that runs this repo, the firewall on the windows computer shoudl be 
 swithced off. Furthermore one has to give both the optitrack computer and the computer that runs the systema a static IP adress (plug in link)
 In Notive, go to edit->settings->streaming. Now choose the local Ip adress as local-inference and Unicast as Transmission type. 
+
+DESCRIPTION
+1. Prerequisities:
+   First clone define a workspace and install all relevnt packages (three in total)
+   ```
+   mkdir optitrack_ws
+   git clone 
+   ```

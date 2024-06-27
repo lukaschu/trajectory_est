@@ -13,6 +13,6 @@ init_noise_vel: 0.75
 init_noise_quat: 0.001
 init_noise_omega: 0.75
 
-prediction_steps: 10
+prediction_steps: 60
 low_pass_order: 20
 use_KF: true

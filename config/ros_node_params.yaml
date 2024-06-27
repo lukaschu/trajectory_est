@@ -1,4 +1,4 @@
 trajectory_est:
   ros__parameters:
     updating_period: 0.25 # s
-    Nr_of_obstacles: 1 
+    Nr_of_obstacles: 2

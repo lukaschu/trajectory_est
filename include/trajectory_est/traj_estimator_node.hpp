@@ -13,6 +13,7 @@
 #include "trajectory_est/kalman_filter.hpp"
 #include <tf2_ros/transform_broadcaster.h>
 #include <geometry_msgs/msg/transform_stamped.h>
+#include "custom_messages/msg/predictedtrajectory.hpp"
 
 using namespace std::chrono_literals;
 
@@ -27,7 +28,7 @@ public:
 
 private:
     std::vector<KalmanFilter> dynamic_obstacles; // vector with KF and estimation functionality
-    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr prediction_publisher_; // Publisher
+    rclcpp::Publisher<custom_messages::msg::Predictedtrajectory>::SharedPtr prediction_publisher_; // Publisher
     rclcpp::Subscription<mocap4r2_msgs::msg::RigidBodies>::SharedPtr markers_subscription_rb_; // Subscriber
     rclcpp::TimerBase::SharedPtr kalman_filter_timer_; // Subscriber(timer)
     bool tracking_initialized = false;

@@ -16,6 +16,7 @@ find_package(tf2_ros REQUIRED)
 find_package(mocap4r2_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(yaml-cpp REQUIRED)
+find_package(custom_messages REQUIRED) 
 
 # my executables
 add_executable(trajectory_est src/traj_estimator_main.cpp)
@@ -23,7 +24,7 @@ add_executable(trajectory_est src/traj_estimator_main.cpp)
 add_library(${PROJECT_NAME}_NODE src/traj_estimator_node.cpp src/kalman_filter.cpp)
 
 # dep.
-ament_target_dependencies(${PROJECT_NAME}_NODE rclcpp std_msgs geometry_msgs tf2_ros mocap4r2_msgs Eigen3 yaml-cpp)
+ament_target_dependencies(${PROJECT_NAME}_NODE rclcpp std_msgs geometry_msgs tf2_ros mocap4r2_msgs Eigen3 yaml-cpp custom_messages)
 
 install(TARGETS 
   trajectory_est

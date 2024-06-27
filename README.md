@@ -36,5 +36,18 @@ DESCRIPTION
    First clone define a workspace and install all relevnt packages (three in total)
    ```
    mkdir optitrack_ws
-   git clone 
+   cd optitrack_ws
+   mkdir src && cd src
+   git clone git@github.com:lukaschu/trajectory_est.git
+   git clone git@github.com:lukaschu/optitrack_ros2.git
+   git clone (custom_message)
+   cd ..
+   rosdep install --from-paths src --ignore-src -r -y
+   colcon build
    ```
+2. Adjust the IP adress
+   Make sure the firewall of the microsoft computer running the motion tracker is switched off
+   Now give define a static IP adress for each computer
+   Now go to: edit->settings->streaming, and choose the local IP adress at "Local Interface", choose unicast as "Transmission Type"
+   Furthermore in the mocap4r2_optitrack_driver package go to mocap4r2_optitrack_driver/config/mocap4r2_optitrack_driver_params.yaml and change the server adress as well as the local adress to the ones you gave both systems.
+   

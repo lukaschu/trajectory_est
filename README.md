@@ -43,11 +43,37 @@ DESCRIPTION
    git clone (custom_message)
    cd ..
    rosdep install --from-paths src --ignore-src -r -y
-   colcon build
    ```
 2. Adjust the IP adress
    Make sure the firewall of the microsoft computer running the motion tracker is switched off
    Now give define a static IP adress for each computer
    Now go to: edit->settings->streaming, and choose the local IP adress at "Local Interface", choose unicast as "Transmission Type"
    Furthermore in the mocap4r2_optitrack_driver package go to mocap4r2_optitrack_driver/config/mocap4r2_optitrack_driver_params.yaml and change the server adress as well as the local adress to the ones you gave both systems.
+3. Build the workspace
+   ```
+   cd optitrack_ws
+   colcon build
+   ```
+   We also need to give the manual path to the NAT_NET executable. You can add the line to the bashrc file if you want (adjust PATH_TO_WORKSPACE below). Otherwise
+   you need to do this everytime you run in a new terminal.
+   ```
+   export LD_LIBRARY_PATH=PATH_TO_WORKSPACE/opti_ws/src/optitrack_ros2/mocap4ros2_optitrack/mocap4r2_optitrack_driver/NatNetSDK/lib//:$LD_LIBRARY_PATH
+   ```
+5. Run the optitrack driver:
+   We can now launch the driver
+   ```
+   ros2 launch mocap4r2_optitrack_driver optitrack2.launch.py
+   ros2 lifecycle set /mocap4r2_optitrack_driver_node activate
+   ```
+6. Run the Kalman Filter
+   ```
+    ros2 launch trajectory_est trajectory_est_launch.py
+   ```
+    There will now be a topic called: /predicted_trajectories which contains the predicted trajectories of the defined objects.
+   Note that for each object a sepperate message is published to the topic. The object_id variable which is contained in the message serves
+   as a unique identifier.
+   
+   
+   
+   
    

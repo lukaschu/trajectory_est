@@ -69,7 +69,7 @@ DESCRIPTION
    ```
     ros2 launch trajectory_est trajectory_est_launch.py
    ```
-    There will now be a topic called: /predicted_trajectories which contains the predicted trajectories of the defined objects.
+   As soon as the number of specified objects (see the yaml params above) is identified, a print statement called "Kalman Filter start" will appear. After that, there will be a topic called: /           predicted_trajectories which contains the predicted trajectories of the defined objects.
    Note that for each object a sepperate message is published to the topic. The object_id variable which is contained in the message serves
    as a unique identifier.
    

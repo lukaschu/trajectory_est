@@ -40,7 +40,7 @@ DESCRIPTION
    mkdir src && cd src
    git clone git@github.com:lukaschu/trajectory_est.git
    git clone git@github.com:lukaschu/optitrack_ros2.git
-   git clone (custom_message)
+   git clone git@github.com:lukaschu/Trajectory_custom_message.git
    cd ..
    rosdep install --from-paths src --ignore-src -r -y
    ```
